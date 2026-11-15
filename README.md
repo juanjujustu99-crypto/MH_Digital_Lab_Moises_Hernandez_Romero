@@ -31,7 +31,7 @@ MiPortafolioWeb/
 ├── portafolio.html
 ├── contacto.html
 ├── css/
-│   └── styles.css
+│   └── CSS/estilos.css
 └── img/
     ├── stockmanager.png
     ├── runtrack.png

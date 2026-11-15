@@ -3118,3 +3118,261 @@ a:focus-visible {
     }
 
 }
+/* =========================================
+   41. MENU RESPONSIVO
+========================================= */
+
+.menu-toggle-input,
+.menu-toggle-button {
+    display: none;
+}
+
+/* Celular vertical y horizontal */
+@media (max-width: 700px),
+       (orientation: landscape) and (max-height: 500px) and (max-width: 900px) {
+
+    .header-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 0;
+    }
+
+    .menu-toggle-input {
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    .menu-toggle-button {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid #647060;
+        color: var(--lima);
+        cursor: pointer;
+        font-size: 25px;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .menu-toggle-button::before {
+        content: "☰";
+    }
+
+    .menu-toggle-input:checked + .menu-toggle-button::before {
+        content: "×";
+    }
+
+    .menu-toggle-input:focus-visible + .menu-toggle-button {
+        outline: 3px solid var(--lima);
+        outline-offset: 4px;
+    }
+
+    .main-nav {
+        display: none;
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .menu-toggle-input:checked ~ .main-nav {
+        display: block;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .main-nav li {
+        border-top: 1px solid #39433B;
+    }
+
+    .main-nav a {
+        display: block;
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+
+    .header-status {
+        display: none;
+    }
+}
+
+
+/* =========================================
+   42. DISPOSITIVOS EN POSICION PORTRAIT
+========================================= */
+
+@media screen and (max-width: 700px) and (orientation: portrait) {
+
+    .wrap {
+        width: 91%;
+    }
+
+    .hero-grid,
+    .page-hero-grid,
+    .services-hero-content,
+    .portfolio-hero-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .hero {
+        padding: 55px 0 65px;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(36px, 10vw, 46px);
+    }
+
+    .project-details {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .project-visual {
+        min-height: 220px;
+        padding: 15px;
+    }
+
+    .project-image {
+        padding: 16px 12px 32px;
+    }
+
+    .project-screenshot {
+        max-height: 360px;
+        object-fit: contain;
+    }
+
+    .contact-grid {
+        gap: 25px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   43. DISPOSITIVOS EN POSICION LANDSCAPE
+========================================= */
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+
+    .header-inner {
+        min-height: 62px;
+    }
+
+    .hero,
+    .page-hero,
+    .services-hero,
+    .portfolio-hero,
+    .contact-hero {
+        padding: 30px 0;
+    }
+
+    .hero-grid,
+    .page-hero-grid,
+    .services-hero-content,
+    .portfolio-hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 24px;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(30px, 4vw, 44px);
+    }
+
+    .lab-panel {
+        width: 100%;
+    }
+
+    .portfolio-index .index-number {
+        font-size: 72px;
+    }
+
+    .contact-main {
+        padding: 30px 0;
+    }
+
+    .contact-grid {
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 20px;
+    }
+
+    .project-visual {
+        min-height: 200px;
+    }
+
+    .project-details {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+}
+/* =========================================
+   44. CARRUSEL DE PROYECTOS
+========================================= */
+
+.project-carousel {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 12px 5px 25px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--grafito-suave) var(--marfil);
+}
+
+.project-carousel .project-case {
+    flex: 0 0 100%;
+    min-width: 0;
+    margin-bottom: 0;
+    padding: 22px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    scroll-snap-align: start;
+}
+
+.project-carousel:focus-visible {
+    outline: 3px solid var(--lima);
+    outline-offset: 4px;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.carousel-controls a {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    background-color: var(--grafito);
+    color: var(--lima);
+    font-size: 13px;
+    font-weight: 800;
+    border: 1px solid var(--grafito);
+}
+
+.carousel-controls a:hover,
+.carousel-controls a:focus-visible {
+    background-color: var(--lima);
+    color: var(--grafito);
+    outline: 2px solid var(--grafito);
+    outline-offset: 3px;
+}
